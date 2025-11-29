@@ -15,7 +15,7 @@ server.bind(ADDR)
 
 
 def handle_msg(conn, ADDR):
-    
+    # conn.send(("Hello client ").encode(FORMAT))
     connect = True
     while connect:
         msg_lenght = conn.recv(HEADER).decode(FORMAT)
@@ -25,7 +25,11 @@ def handle_msg(conn, ADDR):
             print(msg)
             if msg == DISCONNECT_MSG:
                 connect = False
+            
     conn.close()
+
+def recv_msg():
+    
 
 def start():
     # conn, ADDR = socket.listen()
